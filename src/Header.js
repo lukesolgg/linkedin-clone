@@ -8,7 +8,6 @@ import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import pfp from "./content/aigeneratedimagelol1.jpg"
 import { useDispatch } from 'react-redux';
 import { logout } from './features/userSlice';
 import { auth } from './firebase';
@@ -38,7 +37,7 @@ function Header() {
           <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
           <HeaderOption Icon={ChatIcon} title="Messaging" />
           <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-          <HeaderOption avatar={pfp} title="me" onClick={logoutOfApp} />
+          <HeaderOption avatar={true} title="me" onClick={logoutOfApp} />
         </div>
     </div>
   )
