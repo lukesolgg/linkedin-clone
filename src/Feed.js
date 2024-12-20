@@ -1,4 +1,3 @@
-// filepath: /c:/Users/lukes/OneDrive/Desktop/devwork/linkedin-clone/src/Feed.js
 import React, { useState, useEffect } from 'react';
 import './Feed.css';
 import CreateIcon from '@mui/icons-material/Create';
@@ -35,7 +34,7 @@ function Feed() {
     try {
       await addDoc(collection(db, 'posts'), {
         name: user.displayName,
-        description: 'this is a test',
+        description: serverTimestamp(), // Use serverTimestamp for the description
         message: input,
         photoUrl: user.photoUrl || '',
         timestamp: serverTimestamp(),
@@ -70,7 +69,7 @@ function Feed() {
         </div>
       </div>
       <Flipper flipKey={posts.map((post) => post.id).join('')}>
-        {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+        {posts.map(({ id, data: { name, description, message, photoUrl, timestamp } }) => (
           <Flipped key={id} flipId={id}>
             <div>
               <Post
@@ -79,6 +78,7 @@ function Feed() {
                 description={description}
                 message={message}
                 photoUrl={photoUrl}
+                timestamp={timestamp}
               />
             </div>
           </Flipped>
